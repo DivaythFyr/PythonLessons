@@ -7,11 +7,32 @@
 # откуда брать элементы списка
 # [что делать  for i in ...]
 
-#print([i for i in range(10)])
+# print([i for i in range(1, 11)])
 # аналог этой записи
-L = []
-for i in range(10):
-	L.append(i**2)
+# L = []
+# for i in range(1, 11):
+# 	L.append(i)
+
+# Задание: генератор списка выводит список кубов
+# из чисел от -3 до 10
+
+
+
+# Задание: функция принимает список чисел
+# и выводит список строк из них
+
+
+
+
+
+
+
+
+
+# Задание: функция принимает список строк
+# и добавляет каждой строке "!"
+
+
 
 
 #Напишите программу, которая принимает на вход
@@ -19,31 +40,13 @@ for i in range(10):
 # уже встречался. Количество повторов добавляется к
 # символам с помощью постфикса формата _n. -> a_2b_12c_15
 
-# set - множество
-# Хранит уникальные значения
-# Они не индексируемые
-# a = {3, 4, 5, 6}
-#print(set(['aa', 'bb', 'aa', 'aa']))
-
-def DictAdd(string):
-	stringL = [*string] # Разбить строку на список символов
-	setStr = set(string) # Создать множество из строки
-	setStr = list(setStr) # Превратить обратно в список, чтобы
-# пользоваться циклом for
-	String = ''
-
-
-	for i, symbol in enumerate(setStr): # проходимся по уникальным значениям
-		String += str(symbol) + '_' + str(stringL.count(symbol)) # подсчет того,
-	# сколько уникальное
-	# значение встречается в тексте
-	return String
-#print(DictAdd('ssdf ghyj tytutu'))
-#	return [f'{str(symbol)}_{stringL.count(symbol)}' for symbol in setStr]
 
 
 
-# Задание изменить функцию так, чтобы вместо цикла был генератор списка
+# Задание изменить функцию так,
+# чтобы вместо цикла был генератор списка
+
+
 
 
 # в генератор списков можно добавлять if,
@@ -51,9 +54,16 @@ def DictAdd(string):
 # генератора списка не нужны
 # if и else вместе пишутся обязательно до цикла
 # Но if без else можно писать и после цикла
-# print([number if number % 2 == 0 else print(number*7) for number in range(20)])
+# print([number if number % 2 == 0 else number*7 for number in range(20)])
 # print([number for number in range(20) if number % 2 == 0 else number*7])
 # print([number for number in range(20) if number % 2 == 0])
+
+
+
+
+
+
+
 
 # Аналог elif засчет только if и else
 # if условие:
@@ -64,25 +74,69 @@ def DictAdd(string):
 # 	else:
 # 		что-то делается
 
+# print([i if i % 10 == 0 else i**3 if i % 7 ==0 else i**2 for i in range(100)])
+
+
 # Задание: добавить любой аналог elif в генератор списка
 
-x = [1,2,3,4,5,4,3,2,1]
-#print(["Good" if i>=4 else "Neutral" if i==3 else "Bad" for i in x])
+# x = [1,2,3,4,5,4,3,2,1]
+# print(["Good" if i>=4 else "Neutral" if i==3 else "Bad" for i in x])
+
+
+
+
+
 
 
 # Задание: написать этот код без генератора списка
-
 #print([i**2 for i in range(10) if i % 2 == 0])
-# Задача: найти все числа от 1-1000 которые делятся на 7
 
-# Задача: найти все числа от 1-1000 в которых есть 3
+
+
+
+
+# Задача: найти все числа от 1-1000
+# которые делятся на 8, а если не делятся,
+# то превратить их в строку
+# print([i if i % 8 == 0 else str(i) for i in range(1, 1001)])
+
+
+
+
+
+
+
+# Задача: найти все числа от 1-1000
+# в которых есть 3 и оно не кратно 3,
+# иначе умножить на 4
+
+
+
 # if '3' in число превращенное в строку
+
+
 
 # print([i for i in range(1, 1000) if '3' in str(i)])
 
-# Сосчитать количество пробелов в строке
-# Вывести все пробелы в генератор списка и посмотреть его длину
-# 'dfdfd dfdfd dfdfd dfdfd dfdfd dfdfd'
+
+
+
+# Задание: Сосчитать количество пробелов в строке
+# Вывести все пробелы в генератор списка
+# и посмотреть его длину
+
+# Пример: 'dfdfd dfdfd dfdfd dfdfd dfdfd dfdfd' -> 5
+string = "dfd sf sfdfdsfsdf sdfsdf"
+l = [i for i in string if i == " "]
+print(len(l))
+
+
+
+
+
+
+
+
 # len([string.split()]) -1
 # for i in string if i == ' ' другая опция
 string = 'fgfgf fgfgf srewre fgfh'
@@ -102,7 +156,7 @@ string = 'fgfgf fgfgf srewre fgfh'
 # if i in список
 
 
-# Создать генератор списка, который найдет все числа от 1-100000,
+# Создать генератор списка, который найдет все числа от 1-10000,
 # которые делятся на все числа от 2 до 9 одновременно.
 
 
@@ -147,3 +201,26 @@ def VowelFinder(key_str):
 
 # Задание: создать словарь, в котором ключи от одного до 10,
 # значения - квадрат ключа
+
+
+# set - множество
+# Хранит уникальные значения
+# Они не индексируемые
+# a = {3, 4, 5, 6}
+#print(set(['aa', 'bb', 'aa', 'aa']))
+
+def DictAdd(string):
+	stringL = [*string] # Разбить строку на список символов
+	setStr = set(string) # Создать множество из строки
+	setStr = list(setStr) # Превратить обратно в список, чтобы
+# пользоваться циклом for
+	String = ''
+
+
+	for i, symbol in enumerate(setStr): # проходимся по уникальным значениям
+		String += str(symbol) + '_' + str(stringL.count(symbol)) # подсчет того,
+	# сколько уникальное
+	# значение встречается в тексте
+	return String
+#print(DictAdd('ssdf ghyj tytutu'))
+#	return [f'{str(symbol)}_{stringL.count(symbol)}' for symbol in setStr]

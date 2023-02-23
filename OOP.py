@@ -37,14 +37,17 @@ stackObject = Stack() # Чтобы создать объект
 #stackObject.push(3)
 #print(stackObject.pop())
 
-# Функцию - мы пишем сами, метод - это функция, которая прописана в классе
-# название_переменной.метод()
+# Функцию - мы пишем сами, метод - это функция,
+# которая прописана в классе
+# объект.метод()
+# Примеры встроенные в Python: int()/str()/bool() функция, L.append() метод
 
 # Каждый класс должен начинаться с функции __init__,
 # у нее обязательно должен быть параметр self.
 # Благодаря self внутри init задаются свойства и методы,
 # которыми смогут пользоваться другие функции класса,
 # а также классы, унаследованные от него
+
 
 class CreditCard:
     def __init__(self, customer, bank, acnt, limit):
@@ -56,9 +59,9 @@ class CreditCard:
 
     def raiseBalance(self):
         return self.balance + 100
-V017 = CreditCard('Alex', 'Sber', '01657', 0)
-#print(V017.raiseBalance())
 
+V017 = CreditCard('Alex', 'Sber', '01657', 0)
+# print(V017.raiseBalance())
 
 
 
@@ -77,12 +80,18 @@ class Number:
 
   def Mult(self):
     return self.number1 * self.number2
+
 FF = Number(17, 50)
-#print(FF.Sum())
+# print(FF.Sum())
 # print(FF.Mult())
 
-# Задание: класс Person, принимает имя, фамилия, дату рождения и страну
-# Создать метод, который выводит строчку, где перечисляются все эти параметры
+# Задание: класс Person, принимает имя,
+# фамилия, дату рождения и страну
+# Создать метод, который выводит строчку,
+# где перечисляются все эти параметры
+
+
+
 
 
 # Задание: класс Employee, который принимает имя, фамилию, зарплату и номер телефона
@@ -98,6 +107,7 @@ class Employee():
         self.last_name = last_name
         self.salary = salary
         self.number = number
+
     def SumSalary(self):
         try:
             #assert type(self.salary) == int
@@ -105,6 +115,7 @@ class Employee():
             print(f'{self.name} {self.last_name}, зарплата: {self.salary}, номер телефона: {self.number}')
         except TypeError:
             print('Зарплата не является числом')
+
 # Joe = Employee('Joe', 'X', 200, '89130000000')
 # Joe.SumSalary()
 
@@ -153,11 +164,34 @@ stack1Object = AddingStack()
 # метод находит все строки и выводит самую большую
 # метод находит все числа и выводит самое большое
 
+class LL:
+    def __init__(self, L):
+        self.L = L
+
+    def print_type(self):
+        for i, element in enumerate(self.L):
+            print(f'{element} has type {type(element)}')
+
+    def add_to_list(self, element):
+        self.L.append(element)
+        return self.L
+
+    def maxStr(self):
+        max = ''
+        for element in self.L:
+            if type(element) == str and len(element) > max:
+                max = element
+        return max
+
+
+
+
+
 
 
 # Создать класс Time:
 # час (0–23), минуты (0–59), секунды (0–59).
-# Проверить try except что время посылается правильное
+# Проверить if что время посылается правильное
 # Два метода печати по шаблонам: «16 часов 18 минут 3
 # секунды» и «4 p.m. 18 минут 3 секунды».
 
@@ -215,6 +249,13 @@ Policeman1 = Policeman(name ='Bob', surname= 'Dylan',
 
 
 
+
+
+
+
+
+
+
 # Задание: класс Note, принимает в себя любую текстовую информацию
 # (три строки),
 # Создает в init список строк
@@ -224,6 +265,8 @@ Policeman1 = Policeman(name ='Bob', surname= 'Dylan',
 # Например: ['Wash the car', 'Call back'] -> ['1. Wash the car',
 # '2. Call back']
 
+
+
 class Note:
     def __init__(self, str_1, str_2, str_3):
         self.list = [str_1, str_2, str_3]
@@ -232,8 +275,13 @@ class ToDoList(Note):
     def __init__(self, str_1, str_2, str_3):
         Note.__init__(self, str_1, str_2, str_3)
 
+    def add_number(self):
+        for i, element in enumerate(self.list):
+            self.list[i] = f'{i+1}. {element}'
+        return self.list
+
 fgf = ToDoList('11', '22', '33')
-# print(fgf.list)
+# print(fgf.add_number())
 
 
 
@@ -259,7 +307,6 @@ class OneXBet(Bookmaker):
 # print(Bookmaker.raise_amt)
 
 
-
 # У каждого объекта, унаследованного от класса,
 # может быть свой собственный набор дополнительных свойств
 # Либо какое-либо из свойств может не применяться
@@ -271,16 +318,10 @@ class ExampleClass:
     def setSecond(self, val):
         self.second = val
 
-exampleObject1 = ExampleClass()
-exampleObject2 = ExampleClass(2)
+exampleObject = ExampleClass(4)
+exampleObject.x = 4 # Задали свойство, которого не было у класса
 
-exampleObject2.setSecond(4)
-exampleObject3 = ExampleClass(4)
-exampleObject3.third = 4 # Задали свойство, которого не было у класса
-
-# print(exampleObject1.__dict__)
-# print(exampleObject2.__dict__)
-# print(exampleObject3.__dict__)
+# print(exampleObject.__dict__)
 
 
 class ListOfNumbers:
@@ -307,7 +348,7 @@ class ListOfNumbers:
 # конструктора init, то он будет характерен для всего класса
 # и абсолютно всегда будет наследоваться объектам.
 class Example_Class:
-    a = 1
+    a = 1 # Переменная класса характерна и для класса и для объекта
     def __init__(self, val):
         self.b = val
 
@@ -316,7 +357,6 @@ ExampleObject = Example_Class(2)
 # print(hasattr(ExampleObject, 'a'))
 # print(hasattr(Example_Class, 'b'))
 # print(hasattr(Example_Class, 'a'))
-
 
 
 # Если попытаться распечатать объект, то мы получим следующее
@@ -340,11 +380,17 @@ class Planet:
         self.galaxy = galaxy
 
     def __str__(self):
-        return self.name + ' in ' + self.galaxy
+        return self.name + ' is in ' + self.galaxy
 
 Mars = Planet('Mars', 'Milky Way')
 # print(Mars)
 
+
+
+
+# Задание: класс Document,
+# инициализирует размер текста и назначение
+# при печатании выводит эти параметры
 
 # __dict__ Выводит информацию о параметрах объекта
 # print(Mars.__dict__)
@@ -358,6 +404,7 @@ Mars = Planet('Mars', 'Milky Way')
 # __gt__() – для оператора больше >
 # __ge__() – для оператора больше или равно >=
 
+
 # Например ge позволит напрямую
 # сравнивать объекты между собой по определенному принципу
 # в функции мы прописываем, что именно мы хотим проверить
@@ -367,9 +414,9 @@ class distance:
         self.ft = x
         self.inch = y
 
-    def __ge__(self, x):
+    def __ge__(self, anotherObj):
         val1 = self.ft * 12 + self.inch
-        val2 = x.ft * 12 + x.inch
+        val2 = anotherObj.ft * 12 + anotherObj.inch
         if val1 >= val2:
             return True
         else:
@@ -377,6 +424,9 @@ class distance:
 D1 = distance(2, 3)
 D2 = distance(2, 5)
 # print(D1 >= D2)
+
+
+# Задание: расписать метод eq для этого же класса
 
 
 # Задание: класс принимает год, месяц, день
@@ -417,7 +467,12 @@ Job = Staff(name='Dima',age=21,address='Cherepovets',job='Fireman')
 
 
 # Задание: класс Mark принимает оценку
-# dunder метод сравниваем эти числа (__eq__/__ge__)
+# dunder метод сравниваем эти числа (__eq__)
+
+
+
+
+
 
 # pip install numpy
 # import numpy as np
@@ -432,8 +487,10 @@ class Matrix:
         self.num1 = num1
         self.num2 = num2
         self.x = np.zeros((self.num1, self.num2), dtype=int)
+
     def Ran(self):
         return np.random.randint(self.num1, size=self.num2)
+
     def reinitZ(self):
         self.x = np.zeros(self.num1, self.num2)
 ObjectMatrix = Matrix(2, 4)
@@ -449,10 +506,14 @@ ObjectMatrix = Matrix(2, 4)
 # @staticmethod
 import datetime
 class Calendar:
-    clsattr = 6   # атрибут класса
+
     @staticmethod
-    def is_weekend(date):
-        return date.weekday > 5
+    def is_weekend(weekday_date):
+        if weekday_date > 5:
+            print('Выходной')
+c = Calendar()
+# c.is_weekend(6)
+
 
 
 
@@ -460,7 +521,8 @@ class Calendar:
 # у него есть параметры количество дел
 
 # Есть метод, благодаря которому можно
-# сделать список из дел (кол-во дел как в init) (цикл for и input)
+# сделать список из дел (кол-во дел как в init)
+# (цикл for и input)
 
 # Сделать статический метод, который принимает аргумент date
 # Если date равен 31 декабря, то выводим:
@@ -472,12 +534,14 @@ class Calendar:
 # ''.replace('/', '-')
 
 
-# Задание: класс содержит статический метод, другой класс является дочерним
-# Посмотреть, как наследуются статические методы (вызвать стат метод в дочернем классе)
+# Задание: класс содержит статический метод,
+# другой класс является дочерним
+# Посмотреть, как наследуются
+# статические методы (вызвать стат метод в дочернем классе)
 
 
 class ToDoList:
-
+    x = 7
     def __init__(self, item):
         self.item = item
 
@@ -499,8 +563,13 @@ Note1 = ToDoList(5)
 
 
 # Задание: любой класс с любыми начальными параметрами.
-# свободную переменную вне init. В init увеличиваем ее на единицу
+# свободную переменную вне init.
 # Статический метод выводит эту переменную
+
+
+
+
+
 
 class RTyrttr:
     f = 0
@@ -532,6 +601,8 @@ class G:
 
 
 
+
+
 # Декораторы
 class Employee:
     def __init__(self, first, last):
@@ -540,7 +611,7 @@ class Employee:
         self.email = first + '.' + last + '@email.com'
 
     def fullname(self):
-        return '{} {}'.format(self.first, self.last)
+        return f'{self.first} {self.last}'
 
 emp1 = Employee('Jake', 'Stone')
 emp1.first = 'John'
@@ -562,7 +633,6 @@ class Employee:
         return '{} {}'.format(self.first, self.last)
 emp1 = Employee('Jake', 'Stone')
 emp1.first = 'John'
-
 # print(emp1.first)
 # print(emp1.email())
 # print(emp1.fullname())
@@ -589,6 +659,7 @@ emp1.first = 'John'
 
 # print(emp1.first)
 # print(emp1.email)
+# print(emp1.fullname)
 
 # Однако напрямую все еще не могу изменить значения моих property
 
@@ -624,6 +695,17 @@ emp1.fullname = 'George Washington'
 # print(emp1.email)
 # print(emp1.fullname)
 
+# Задание: класс обозначает Книгу
+# Принимает название, автора.
+# Сделать property, который выводит полное название книги
+# Например: "Hyperfocus by Chris Bailey"
+# сделать ему setter
+
+# print('fgfgfgf dfgfgf'.split())
+
+
+
+
 
 # Задание: класс Army принимает численность войск (int),
 # основной тип вооружения (str),
@@ -632,82 +714,10 @@ emp1.fullname = 'George Washington'
 # Метод: Исходя из численности, очков атаки и
 # защиты выводится эффективность
 # = все перемножается и делится на 3
-# Добавить декораторы: setter для всех параметров
-
-class Army:
-    def __init__(self,number_army,type_main,type_second,attack_point,protection_point):
-        self.number_army = number_army
-        self.type_main = type_main
-        self.type_second = type_second
-        self.attack_point = attack_point
-        self.protection_point = protection_point
-
-    def GetEffect(self):
-        return (self.number_army * self.attack_point * self.protection_point / 3)
-
-    @property
-    def number_army1(self):
-        return self.number_army
-    @number_army1.setter
-    def number_army1(self, value):
-        self.number_army = value
-
-    @property
-    def type_main1(self):
-        return self.type_main
-
-    @type_main1.setter
-    def type_main1(self, value):
-        self.type_main = value
-
-    @property
-    def type_second1(self):
-        return self.type_second
-
-    @type_second1.setter
-    def type_second1(self, value):
-        self.type_second = value
-
-    @property
-    def attack_point1(self):
-        return self.attack_point
-
-    @attack_point1.setter
-    def attack_point1(self, value):
-        self.attack_point = value
-
-    @property
-    def protection_point1(self):
-        return self.protection_point
-
-    @protection_point1.setter
-    def protection_point1(self, value):
-        self.protection_point = value
+# Добавить __str__ для вывода типа вооружения и основного типа
+# Добавить декоратор: property для этого метода.
 
 
-# Задание: создать словарь (в __init__), ключи - типы вооружения, значение - очки (float)
-# Есть дополнительный метод математический конструктор __ge__(self, other),
-# с помощью него можно сопоставить два экземпляра, он сравнивает сумму очков вооружений одного и другого
-
-class distance:
-    def __init__(self, x=None,y=None):
-        self.ft=x
-        self.inch=y
-    def __ge__(self, x):
-        val1=self.ft*12+self.inch
-        val2=x.ft*12+ x.inch
-        if val1>=val2:
-            return True
-        else:
-            return False
-d1=distance(2,1)
-d2=distance(4,10)
-# print(d1 >= d2)
-
-
-NewArmy = Army(100,'1','2',25,33)
-NewArmy.number_army = 200
-# print(NewArmy.GetEffect())
 
 
 
@@ -739,6 +749,7 @@ Max = student("max", 2001, 20)
 # print(Max.email)
 # del Max.email
 # print(Max.email)
+# print(Max.name)
 
 
 
@@ -774,13 +785,43 @@ def F():
     print('Hello')
 # F()
 
-
 # Задание 1
 # Создайте функцию, возвращающую список со всеми
 # простыми числами от 0 до 1000.
 # Используя механизм декораторов посчитайте сколько
 # секунд, потребовалось для вычисления всех простых чисел.
 # Отобразите на экран количество секунд и простые числа.
+
+# @timer
+# def prime(num1, num2):
+#     L = []
+#     for i in range(num1, num2+1):
+#         for j in range(2, i):
+#             if i == 2 or i == 3:
+#                 L.append(i)
+#             elif i % j == 0:
+#                 break
+#             else:
+#                 L.append(i)
+#     return L
+# print(prime(1, 10))
+
+
+
+# @timer
+# def points(num1, num2):
+#     for i in range(num1, num2 + 1):
+#         for j in range(2, i):
+#             if i % j == 0:
+#                 break
+#         else:
+#             print(i)
+# points(1, 10)
+
+
+
+
+
 
 # Задание 2
 # Добавьте к первому заданию возможность передавать
@@ -818,11 +859,6 @@ def F():
 
 
 
-
-
-
-
-
 # classmethods
 # Классовые методы относятся к самому классу, а не к его экземплярам.
 # Отличия от статических методов:
@@ -854,7 +890,9 @@ class Employee:
         first, last = emp_str.split('-')
         return cls(first, last)
 
-new_emp = Employee.from_string(emp_str_1)
+new_emp = Employee.from_string('Nate-Diaz')
+
+
 
 # Таким образом методы класса позволяют нам создавать экземпляры альтернативным путем
 
@@ -864,17 +902,19 @@ new_emp = Employee.from_string(emp_str_1)
 # из строки 'год-месяц-день'
 
 
-# class Time:
-#     def __init__(self, day, month, year):
-#         self.day = day
-#         self.month = month
-#         self.year = year
-#
-#     @classmethod
-#     def from_string(cls, time_str):
-#         day, month, year = time_str.split('-')
-#         return cls(day, month, year)
-#
+class Time:
+    def __init__(self, day, month, year):
+        self.day = day
+        self.month = month
+        self.year = year
+
+    @classmethod
+    def from_string(cls, time_str):
+        day, month, year = time_str.split('-')
+        return cls(day, month, year)
+t1 = Time.from_string('12-05-2023')
+# print(t1.year)
+
 #     @classmethod
 #     def from_list(cls, time_lst):
 #         try:
@@ -894,25 +934,55 @@ new_emp = Employee.from_string(emp_str_1)
 # второе больше 12, третье может быть любым
 
 
+
+
+
+
 # Задание: класс LetterFilter строку
 # разрешенных букв (str)
 # Метод принимает текст и фильтрует его, убирая буквы,
 # которых нет в разрешенных
 # Классовый метод позволяет сделать объект
-# их списка разрешенных букв, а не строки
+# из списка разрешенных букв, а не строки
 
+class LetterFilter:
+    def __init__(self, filter_str):
+        self.filter_str = filter_str
 
-# new_time = Time.from_string('11-12-2022')
-# new_time1 = Time.from_list([11, 12, 2022])
+    def text_filter(self, txt):
+        filtered_str = ''
+        for symbol in txt:
+            if symbol in self.filter_str:
+                filtered_str += symbol
+        return filtered_str
 
-# print(new_time.__dict__)
-# print(new_time1)
+    @classmethod
+    def from_list(cls, L):
+        filter_str = ''.join(L)
+        return cls(filter_str)
+
 
 
 # Задание: функция принимает список параметров LetterFilter
 # try except проверяет, как лучше создать объект:
 # через init или классовым методом
 # Если аргументы совсем не подходят, то выводим ошибку TypeError
+
+def LetterFilterCreator(value):
+    if isinstance(value, str):
+        obj = LetterFilter(value)
+    elif isinstance(value, list):
+        obj = LetterFilter.from_list(value)
+    else:
+        print("TypeError")
+    return obj
+A = LetterFilterCreator(['a', 'c'])
+# print(A.filter_str)
+
+
+
+
+
 
 
 # Классовые методы позволяют манипулировать переменными класса
@@ -1024,7 +1094,7 @@ class Friend(ContactData):
     def __init__(self, name, email, phone, number_of_friends):
         super().__init__(name, email, phone)
         self.number_of_friends = number_of_friends
-F = Friend('Alex', 'fgfg@gmail.com', 89190976585, 7)
+# F = Friend('Alex', 'fgfg@gmail.com', 89190976585, 7)
 
 
 
@@ -1040,16 +1110,24 @@ class A:
     def sum(self):
         return self.a + self.b + self.c
 
+    def Print(self):
+        print('Hello')
+
 class B(A):
-    def __init__(self, a2, b2, c2):
+    def __init__(self, a2, b2, c2, d2):
         super().__init__(a2, b2, c2)
+        self.d2 = d2
 
     def Sum(self):
         return 6
 
-ObjectB = B(2, 3, 4)
+    def CheckSuper(self):
+        super().Print()
+
+ObjectB = B(2, 3, 4, 5)
 # print(ObjectB.sum())
 # print(ObjectB.Sum())
+# ObjectB.CheckSuper()
 
 # Задание: класс Transport принимает название и скорость (float)
 
@@ -1061,8 +1139,10 @@ ObjectB = B(2, 3, 4)
 
 
 # Задание: от класса Transport наследует Airplane.
-# его метод принимает массу, позволяет вычислить прочность шасси относительно скорости
+# его метод принимает массу, позволяет вычислить
+# прочность шасси относительно скорости
 # по формуле: (скорость * масса) / 250 / 100
+
 #
 
 # Задание: от класса Transport наследует Ship
@@ -1082,6 +1162,18 @@ ObjectB = B(2, 3, 4)
 # print(0.5 in range(0, 1, 0.01))
 
 
+# def Archimed(p, m):
+# # F = pgV
+#     return p * 9.8 * (m/7.8)
+#
+# def probVex(name , p):
+#     if 'беда' in name:
+#         return p**4 * (1-p)**(len(name) - 4)
+#     else:
+#         return 0
+
+
+
 
 # У одного класса может быть много суперклассов
 
@@ -1095,7 +1187,6 @@ class Virus(Living, NonLiving):
     pass
 
 virus = Virus()
-
 # print(virus.status, virus.status)
 
 
@@ -1103,25 +1194,25 @@ virus = Virus()
 # то при объявлении будет вызываться тот, который был задан
 # левее в скобках подкласса
 
-# class Class1:
-#     def m(self):
-#         print("In Class1")
-#
-#
-# class Class2(Class1):
-#     def m(self):
-#         print("In Class2")
-#
-#
-# class Class3(Class1):
-#     def m(self):
-#         print("In Class3")
-#
-#
-# class Class4(Class2, Class3):
-#     pass
-#
-# obj = Class4()
+class Class1:
+    def m(self):
+        print("In Class1")
+
+
+class Class2(Class1):
+    def m(self):
+        print("In Class2")
+
+
+class Class3(Class1):
+    def m(self):
+        print("In Class3")
+
+
+class Class4(Class2, Class3):
+    pass
+
+obj = Class4()
 # obj.m()
 
 
@@ -1165,7 +1256,7 @@ class Class4(Class2, Class3):
     def m(self):
         print("In Class4")
 
-# obj = Class4()
+obj = Class4()
 # obj.m()
 #
 # Class2.m(obj)

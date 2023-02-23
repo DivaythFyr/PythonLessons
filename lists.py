@@ -11,13 +11,25 @@ rubbish_list = list(('apple', 'pen', 'dust', 'flies'))
 
 # Чтобы добавить элемент в список
 # нужно воспользоваться методом append
-# rubbish_list.append('decaying box')
+rubbish_list.append('decaying box')
 # print(rubbish_list)
+
+# Переставить элементы
+rubbish_list[0], rubbish_list[1] = rubbish_list[1], rubbish_list[0]
+# print(rubbish_list)
+
+# print(rubbish_list[0:3] + rubbish_list[2:4])
+
+
+# Задание: список содержит 6 случайных элементов.
+# добавить новый элемент, но чтобы он оказался на третьей позиции.
+
+
 
 # Чтобы удалить элемент по индексу
 # Используя знак минус можно
 # обращаться к элементам с конца
-# rubbish_list.pop(-1)
+# rubbish_list.pop(0)
 # print(rubbish_list)
 
 # Чтобы удалить элемент по значению,
@@ -163,7 +175,7 @@ for i in range(len(List)):
 # Чтобы сделать срез списка list[:4],
 # при этом последнее число не включается
 L = [1, 2, 3, 'aaa', 'aa']
-# print(L[:4])
+# print(L[1:4])
 # print(L[3:])
 
 # Задание: создать два списка.

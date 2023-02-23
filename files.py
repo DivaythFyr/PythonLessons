@@ -1,4 +1,5 @@
-# Взаимодействие с файлом можно охарактеризовать четырьмя основными операциями
+# Взаимодействие с файлом можно охарактеризовать
+# четырьмя основными операциями
 # 1. открыть файл
 # 2. чтение из потока - часть файла извлекается и помещается в
 # какую-нибудь область памяти (как правило, переменную)
@@ -67,59 +68,41 @@ def PrintNumberOfCharacters():
         new_file.write(f' (There are {cnt} characters in this file except for this sentence)')
         new_file.close()
 #PrintNumberOfCharacters()
-#s = open(r"C:\Users\aisin\Desktop\file.txt", 'rt')
-#content = s.read()
-#print(content)
-
+# s = open(r"C:\Users\aisin\Desktop\Биотехнология экзамен.txt", 'rt', encoding='utf8')
+# content = s.read()
+# s.close()
 
 # если нужно обработать файл как набор строк, а не символов
 # то пользуемся readlines()
-#s = open(r"C:\Users\aisin\Desktop\file.txt", 'rt')
-#print(s.readlines(3))
+# s = open(r"C:\Users\aisin\Desktop\Биотехнология экзамен.txt", 'rt', encoding="utf8")
+# print(s.readlines())
+# print(s.readline())
+# s.close()
 
 
-# с помощью этого модуля можно простым образом выявлять ошибки записи и чтения
-from os import strerror
-
-def writeSomething():
-    try:
-        fo = open(r"C:\Users\aisin\Desktop\file.txt", 'wt')
-        for i in range(10):
-            s = 'line #' + str(i + 1) + '\n'
-            for ch in s: # обращаемся к каждому отдельному элементу строчки
-                fo.write(ch) # запись одного символа
-        fo.close()
-    except IOError as e:
-        print('error occured ', + strerror(e.errno))
-#writeSomething()
-#ProperFileOpen('file.txt')
-
+# И того есть несколько способов читать информацию из файла:
+# 1. f.read() - прочтет текст целиком
+# 2. f.readlines() - прочтет текст как список из строк
+# 3. f.readline() - прочтет строчку. Если применить еще раз,
+# будет последовательно выводить оставшиеся
 
 
 # Удобная конструкция для записи из одного файла в другой
 # # with позволяет автоматически закрывать файл без close()
-with open(r'C:\Users\aisin\Desktop\file.txt','rt') as firstfile, open(r'C:\Users\aisin\Desktop\copy_file.txt','wt') as secondfile:
-    for line in firstfile:
-        for element in line:
-                secondfile.write(element)
-
-
-
-# Задание:
-# Вы создаете файл на рабочем столе, в котором много чисел
-# with open(путь к рабочему столу, 'at') as f:
-#   for i in range(10):
-#       f.write(i)
 # with open(r'C:\Users\aisin\Desktop\file.txt','rt') as firstfile, open(r'C:\Users\aisin\Desktop\copy_file.txt','wt') as secondfile:
 #     for line in firstfile:
 #         for element in line:
 #                 secondfile.write(element)
 
+
+# Задание:
+# Вы создаете файл на рабочем столе,
+# в котором числа от одного до 100
+
+
 # Задание:
 # произвести запись в другой файл, но только семерок
-# file.read()
-# for symbol in file:
-#   текст += symbol
+
 
 
 # Задача: функция принимает список строк.

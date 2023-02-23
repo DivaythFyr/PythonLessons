@@ -27,6 +27,13 @@ def sqrt(x):
     elif x < 0:
         raise ValueError('x cannot be negative')
 
+
+# Str = 'aa'
+# try:
+#    Str = int(Str)
+# except ValueError:
+#     raise ValueError
+
 #
 def protectDividingOnZero(number1, number2):
     if number2 != 0:
@@ -89,7 +96,7 @@ def rtr():
         print('Ошибка, что это за переменные?')
     except ZeroDivisionError:
         print('нельзя делить на ноль')
-#rtr()
+# rtr()
 
 
 
@@ -148,7 +155,7 @@ def PrintType(List):
 # [3, 4, 5], 60 -> 20  15  12
 # Нужно вывести результат деления этого числа на все остальные
 # Предугадайте все возможные ошибки и обработайте их try/except
-
+print(ZeroDivisionError, 'будет делиться на ноль')
 
 
 # Функция принимает список слов и слово, которое нужно удалить

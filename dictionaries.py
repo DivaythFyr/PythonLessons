@@ -1,94 +1,129 @@
-# Словарь - структура данных, пишется через фигурные скобки {}
-# В каждом словаре есть ключ и подходящее ему значение
-# в качестве ключа может быть целое число или строчка
-# Пример: {1: 'Monday', 2: 'Tuesday', 3: 'Wednesday'}
+# Словарь - структура данных,
+# пишется через фигурные скобки {}
+# В каждом словаре есть ключ
+# и подходящее ему значение
+# в качестве ключа может быть целое число
+# или строчка
+# Пример:
+# {1: 'Monday', 2: 'Tuesday', 3: 'Wednesday'}
 
-# {'бегать': ['run', 'jog', 'sprint'], 'run': ['бегать', 'запускать']}
+
+# {'бегать': ['run', 'jog', 'sprint'],
+# 'run': ['бегать', 'запускать']}
 
 
 # Найти значение можно по ключу.
 # В квадратных скобках указываем название ключа.
-weekDict = {1: 'Monday', 2: 'Tuesday', 3: 'Wednesday',
+weekDict = {1: 'Monday', 2: 'Tuesday',
+            3: 'Wednesday',
             'The Fourth day': 'Thursday'}
-#список[число]
-#print(weekDict['The Fourth day'])
-#print(weekDict[3])
+# Если список[число],
+# то словарь[ключ]
+# print(weekDict['The Fourth day'])
+# print(weekDict[3])
 
 
 # Менять значение можно следующим образом
-#weekDict[1] = 'Sunday'
-#print(weekDict)
+weekDict[1] = 'Sunday'
+# print(weekDict)
 
-# в качестве значения  можно указывать любой тип данных,
+# в качестве значения  можно указывать
+# любой тип данных,
 # даже другие структуры данных: список, словарь, кортеж и тд.
-D = {1: [1, 2, 3, 4], 2: {1:2, 2:4, 3:5}}
+D = {1: [1, 2, 0, 1, 4], 2: {1:2, 2:4, 3:5}}
 
-# Чтобы обратиться к элементу списка внутри словаря:
-#print(D[1][0])
+
+# Чтобы обратиться к элементу списка
+# внутри словаря:
+# print(D[1][2])
+
+
 
 # Обратиться к значению словаря внутри словаря
 #print(D[2][1])
 
 
-# чтобы вернуть все значения словаря / все ключи словаря
-#print(D.values())
-#print(D.keys())
+# чтобы вернуть все значения словаря
+# / все ключи словаря
+# print(D.values())
+# print(D.keys())
 
 # метод items() возвращает все ключи и значения.
 # Пара ключ-значение оборачивается в кортеж
-#print(D.items())
+# print(D.items())
 
-# если мы хотим пройтись циклом по ключам и словарям,
+
+# если мы хотим пройтись циклом по ключам и значениям,
 # то нам нужно использовать следующую конструкцию
 # for key, value in словарь.items():
-#D = {1: [1, 2, 3, 4], 2: {1:2, 2:4, 3:5}}
-#for key, value in D.items():
-    #print(D[key]) # печатем значение словаря, которое находится под ключом
+# D = {1: [1, 2, 3, 4], 2: {1:2, 2:4, 3:5}, 'fgfgf':"dfgfgfg", 5: 'fgfgfgf', '77': 77}
+# for key, value in D.items():
+#
+# print(D)
+# печатем значение словаря, которое находится под ключом
 
-# Задача: создаете словарь, ключи и значения которых являются цифрами.
+
+# Как изменить ключ
+D = {1: [1, 2, 3, 4], 2: {1:2, 2:4, 3:5}, 'fgfgf':"dfgfgfg", 5: 'fgfgfgf', '77': 77}
+D[100] = D.pop(1)
+
+
+
+# Задача: Функция принимает словарь,
+# ключи и значения которых являются цифрами.
 # Каждое значение увеличиваете на единицу
-# Например: {1:2, 2:3, 4:5, 6:44}
+# Например: {1:2, 2:3, 4:5, 6:44} становится
+# {1:3, 2:4, 4:5, 6:45}
 
 def DictPlusOne(d):
     for key, value in d.items():
         d[key] += 1
     return d
-
-#DictPlusOne({1:2, 2:3, 3:4, 5:78})
-
+# print(DictPlusOne({1:2, 2:3, 3:4, 5:78}))
 
 
 # Задача: на том же самом словаре перемножаете все
-# значения словаря между собой перемножить и печатаете его
+# значения словаря между собой
+# и печатаете его
 def DictMultiplyValues(d):
-    y = 1
-    for key, values in d.items():
-        y *= d[key]
-    return y
+    y = 1 # сохранит в себе перемножение всех значений словаря
+    for key, value in d.items(): # открываем цикл
+        y *= value # на каждом обороте берем значение по ключу key и домножаем его в переменную y
+    return y # возвращаем значение
 
-#print(DictMultiplyValues(DictPlusOne({1:2, 2:3, 3:4, 5:78})))
+#print(DictMultiplyValues
+# (DictPlusOne({1:2, 2:3, 3:4, 5:78})))
 
 
 
-# Задача: создаете словарь, где значения - это строки.
-# Если строка может стать числом, то превращаете ее в число
+
+# Задача: функция принимает словарь,
+# где значения - это строки.
+# Если строка может стать числом,
+# то превращаете ее в число
+# строка.isdigit() (проверка на возможность превратиться в число)
+
 
 def DictConvert(d):
-    y = []
     for key, value in d.items():
-        if d[key].isnumeric():
+        if d[key].isdigit() == True:
             d[key] = int(d[key])
-    print(d)
-#DictConvert({1:'233', 2:'3erere'})
+    return d
+# print(DictConvert({1:'233', 2:'3erere'}))
 
 
 
-# Задача: Функция принимает список и словарь
-# (В словаре и списке нет структур данных), {'dfd': 5, 6: 7}
+# Задача: Функция принимает список
+# и словарь
 # Находит все числа и там и там
-# Сравнивает сумму
-# А еще выводит, где больше других типов данных
+# Сравниваете суммы чисел и там и там
+# Пример: [1, 'fdgfgf', True, 2], {1:'dfdfd', 2:10} ->
+# -> сумма в словаре больше
+# Дополнительно: А еще выводит, где больше других типов данных
 # (все не int будут засчитываться)
+
+
+
 
 def CompareListDict(L, D):
     L_count = 0
@@ -115,13 +150,14 @@ def CompareListDict(L, D):
 # Чтобы сделать словарь из двух списков
 # dict(zip(list1, list2))
 
-#list1 = ['Monday', 'Tuesday', 'Wednesday']
-#list2 = [1, 2, 3]
-#print(dict(zip(list1, list2)))
+# list1 = ['Monday', 'Tuesday', 'Wednesday']
+# list2 = [1, 2, 3]
+# print(dict(zip(list2, list1)))
 
 # Задание: функция принимает два списка,
-# выводит словарь, если они равны по длине
-# В первом списке должны быть только строки или int
+# выводит словарь
+# В первом списке должны быть
+# только строки или int
 
 def CreateDictFromLists(list1, list2):
     for i, element in enumerate(list1):
@@ -140,7 +176,7 @@ def CreateDictFromLists(list1, list2):
 #for i, element in enumerate(['aa', 'bb', 'cc']):
     #print(f'{i}:{element}' )
 
-table = {
+genetic_code = {
         'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
         'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T',
         'AAC':'N', 'AAT':'N', 'AAA':'K', 'AAG':'K',
@@ -160,40 +196,38 @@ table = {
 }
 # Функция принимает строку 'GCACCCAAA'
 # Переводим строку ДНК в строку белка
-# string[0:2]
+# string[i:i+2]
 
-def Translation(DNA):
-    if len(DNA) % 3 != 0:
-        return "Can't make a protein"
-
-    protein = ''
-
-    for i in range(0, len(DNA), 3):
-        protein += table[DNA[i:i + 3]]
-
-    return protein
-#print(Translation('AAAGGGTTTCCC'))
 
 # GGGCCGATGCGCG
 
 
-# Мы сравниваем два белка
-# Строка должна быть на один нуклеотид больше
-# Делаем первый белок с первого по предпоследний
-# И со второго по последний
 
 
-def DNK_Function(string):
-    protein1 = ''
-    protein2 = ''
-    if len(string) % 3 == 1:
-        for i in range(0, len(string)-1, 3):
-            key = string[i:i + 3]
-            protein1 += table[key]
-        for i in range(1, len(string), 3):
-            key = string[i:i + 3]
-            protein2 += table[key]
+# Функция принимает два словаря,
+# сравнивает, где больше всего строк
+# {1: 'dfdfd', 2:'dfdfd'}  {1:2}
+
+d1 = {1: 'dfdfd', 2: 2, 3:'dfdfdfd'}
+d2 = {1: 'dfdfd', 2:'dfdfdfd', 3:'dfdfdfd'}
+
+
+def compareDicts(d1, d2):
+    count1 = 0
+    count2 = 0
+
+    for key, value in d1.items():
+        if type(value) == str:
+            count1 += 1
+
+    for key, value in d2.items():
+        if type(value) == str:
+            count2 += 1
+
+    if count1 > count2:
+        print('В первом словаре больше')
+    elif count1 < count2:
+        print('Во втором словаре больше')
     else:
-        return 'Введено некорректное значение DNK'
-    print(protein1, protein2)
-DNK_Function('CCCGGGTATA')
+        print('Они одинаковы')
+compareDicts({1: 'dfdfd', 2: 2, 3:'dfdfdfd'}, {1: 'dfdfd', 2:'dfdfdfd', 3:'dfdfdfd'})

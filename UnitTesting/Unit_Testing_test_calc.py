@@ -10,6 +10,7 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(calc.add(10, 5), 15)
 
 
+
     def test_divide(self):
         self.assertEqual(calc.divide(10, 5), 2)
         
@@ -27,7 +28,8 @@ class TestCalc(unittest.TestCase):
 
 # Задание: добавить такие же функции в этот класс для вычитания, умножения, деления
 
-
+# Задание: Добавить тест в функцию деления, который проверяет, что
+# не происходит деления на ноль self.assertRaises(ValueError, calc.divide, 10, 0)
 
 
 

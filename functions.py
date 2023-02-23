@@ -5,8 +5,11 @@
 
 def my_function():
     print('Функция была вызвана')
-
 # my_function() # Вызывать функцию нужно всегда со скобочками
+
+
+
+
 name = 'Petr'
 def Name(name):
     print(f'Hello {name}')
@@ -15,13 +18,14 @@ def Name(name):
 # Name('Natasha')
 
 
+
 # Аргументы - переменные,
 # на месте которых данные будут переданы в
 # функцию и использованы
 
 def PrintAnimal(animal, plant):
-    print(animal + ' ' + plant)
-# PrintAnimal('tiger', 'oak')
+    print(f'{animal} and {plant}')
+# PrintAnimal('lion', 'oak')
 
 
 # Выводить аргументы можно не только
@@ -43,26 +47,27 @@ def my_planet(planet = "The Earth"):
 # my_planet()
 # my_planet('Mars')
 
+
 # В качестве аргументов может быть
 # любой тип данных
 
 def Printfruit(food):
   for x in food:
     print(x)
-# fruit_list = ["apple", "banana", "cherry"]
-# Printfruit(["apple", "banana", "cherry", "fgfgf"])
+# Printfruit(["apple", "banana", "cherry"])
+# Printfruit('apple banana cherry')
 
 
 # Задача: преобразуйте данный код в функцию
-# name = input()
-# print('His name is ' + name)
+name = input()
+print('His name is ' + name)
 
 def function(name):
     print('His name is ' + name)
+# function('Ilya')
 
 
 # Задача: преобразуйте данный код в функцию
-
 # number_list = [1, 2, 2, 5, 6, 4]
 # for i in range(len(number_list)):
 #     number_list[i] += 1
@@ -85,8 +90,6 @@ def functIon(number_list):
 # Задача: напишите функцию,
 # которая берет список чисел
 # и перемножает все эти числа
-
-
 
 
 # Задача: напишите функцию,
@@ -148,13 +151,10 @@ def EvenList(number_list):
 #  список (методом append).  список.append(элемент)
 
 
-
-
 # Задание: Функция принимает: Список строк, целых и дробных чисел.
 # Если элемент - целое, меняем его на строку.
 # Если дробное, меняем его на целое
-# Если строка может превратиться в целое,
-# меняем на целое
+# Если строка может превратиться в целое, меняем на целое
 # Если нет, то меняем строку на длину ее символов len()
 # Проверяем могут ли строки перейти в числа,
 # если могут, то переводим
@@ -227,12 +227,12 @@ def findNumber(PC_number, Range=range(1, 101)):
 # непозиционных аргументов
 def PrintAnimals(*animals):
     print(*animals)
-#PrintAnimals('Lion', 'Tiger', 'Puma', 'Otter', 'Sparrow')
+# PrintAnimals('Lion', 'Tiger', 'Puma', 'Otter', 'Sparrow')
 
 def PrintAnimalsOneByOne(*animals):
     for animal in animals:
         print(animal)
-#PrintAnimalsOneByOne('Lion', 'Tiger', 'Puma')
+# PrintAnimalsOneByOne('Lion', 'Tiger', 'Puma')
 
 
 # Задание: функция принимает
@@ -257,14 +257,20 @@ def mul(*args):
 
 # Взаимодействие функций
 def multiplication(a):
-    c = a*a
+    c = a**2
     return c
 
 def subtraction(c):
     d = c - 2
     return d
 
-#print(subtraction(multiplication(2)))
+# print(subtraction(multiplication(2)))
+
+# Задание: первая функция примает диапазон
+# и на его основе создает список чисел
+# Вторая функция примает список и выводит сумму всех элементов.
+
+
 
 
 # Задание: Одна функция создает список
@@ -371,7 +377,139 @@ def factors(n):
     for k in range(1,n+1):
         if n % k == 0:
             yield k
-print(factors(10))
+# print(factors(10))
+
+
+
+# Пример когда одна функция пользуется другой в качестве аргумента
+def add(x, y):
+    return x + y
+
+def mean(x, y):
+    return (x + y) / 2
+
+# mean(add(4, 4), add(5, 5))
+
+
+# Задание: первая функция вычитает один аргумент от другого
+# Вторая функция возводит в квадрат число
+# Во вторую функцию в качестве аргумента передать первую.
+# def unsum(one,two):
+#     return one-two
+# def squart(one):
+#     return one**2
+# print(squart(unsum(30,28)))
+
+
+# Первая функция принимает число. Создает список из пустых строк
+# количество элементов равно числу, которое принимается в функцию
+# Вторая функция принимает список и строку. Каждый элемент списка
+# меняет на строку
+# Вторая функция вызывает первую в качестве первого аргумента
+
+def empty_list(str_num):
+    L = []
+    for i in range(str_num):
+        L.append('')
+    return L
+
+def list_of_str(L, str):
+   for i in range(len(L)):
+       L[i] = str
+   return L
+# print(list_of_str(empty_list(8), 'Hello'))
+
+
+# Задание: первая функция принимает список чисел,
+# каждое второе число превращает в строку
+# Другая функция принимает список, каждый третий элемент
+# превращает в строку
+# Первая функция вызывает вторую, Вторая функция вызывает первую.
+
+
+# Задание: первая функция принимает строку и просто возвращает
+# Вторая функция принимает строку и число. Каждый символ умножается на
+# это число
+
+
+# def func1(word):
+#     return word
+# def func2(word, number):
+#     Word = ''
+#     for i in range(len(word)):
+#         Word += word[i] * number
+#     return word
+# print(func2(func1('Hello'), 2))
+
+
+
+
+# "09:10:01" -> "09:10:01"
+# "11:70:10" -> "12:10:10"
+# "19:99:99" -> "20:40:39"
+# "24:01:01" -> "00:01:01"
+
+
+def ST(string):
+    hour_minute_sec = string.split(':')
+    hour, minute, second = hour_minute_sec
+
+    if second[0] == '0':
+        second = int(second[1])
+    else:
+        second = int(second)
+
+    if minute[0] == '0':
+        minute = int(minute[1])
+    else:
+        minute = int(minute)
+
+    if hour[0] == '0':
+        hour = int(hour[1])
+    else:
+        hour = int(hour)
+
+    while second > 59:
+        second -= 60
+        minute += 1
+
+    while minute > 59:
+        minute -= 60
+        hour += 1
+
+    while hour > 23:
+
+        hour -= 24
+
+    result = ''
+    if hour < 10:
+        result += f'0{hour}:'
+    else:
+        result += f'{hour}:'
+
+    if minute < 10:
+        result += f'0{minute}:'
+    else:
+        result += f'{minute}:'
+
+    if second < 10:
+        result += f'0{second}'
+    else:
+        result += f'{second}'
+
+    return result
+
+
+# print(ST("19:99:99"))
+
+
+
+
+
+
+
+
+
 
 
 
